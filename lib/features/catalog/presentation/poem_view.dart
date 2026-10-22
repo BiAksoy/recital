@@ -28,7 +28,7 @@ class PoemView extends StatelessWidget {
           Text(poem.title, style: context.text.headlineSmall),
           SizedBox(height: spacing.xs),
           Text(
-            context.l10n.poetAndYear(poet.name, poem.year),
+            context.l10n.poetAndYear(poet.name, '${poem.year}'),
             style: context.text.bodyMedium?.copyWith(color: colors.inkMuted),
           ),
           SizedBox(height: spacing.lg),

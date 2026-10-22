@@ -43,13 +43,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get catalogUnreadable => 'The poems could not be read.';
 
   @override
-  String poetAndYear(String poet, int year) {
-    final intl.NumberFormat yearNumberFormat = intl.NumberFormat.decimalPattern(
-      localeName,
-    );
-    final String yearString = yearNumberFormat.format(year);
-
-    return '$poet, $yearString';
+  String poetAndYear(String poet, String year) {
+    return '$poet, $year';
   }
 
   @override

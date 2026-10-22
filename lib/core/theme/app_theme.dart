@@ -49,6 +49,20 @@ ThemeData buildAppTheme() {
       elevation: 0,
       scrolledUnderElevation: 0,
       titleTextStyle: text.titleLarge,
+      centerTitle: false,
+    ),
+    navigationBarTheme: NavigationBarThemeData(
+      backgroundColor: colors.surface,
+      indicatorColor: colors.accentWash,
+      surfaceTintColor: Colors.transparent,
+    ),
+    bottomSheetTheme: BottomSheetThemeData(
+      backgroundColor: colors.surface,
+      surfaceTintColor: Colors.transparent,
+    ),
+    dialogTheme: DialogThemeData(
+      backgroundColor: colors.surface,
+      surfaceTintColor: Colors.transparent,
     ),
     dividerTheme: DividerThemeData(color: colors.hairline, space: 1),
     listTileTheme: ListTileThemeData(iconColor: colors.inkMuted),

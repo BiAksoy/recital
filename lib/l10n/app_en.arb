@@ -12,7 +12,7 @@
   "nextDay": "Next day",
   "catalogUnreadable": "The poems could not be read.",
   "poetAndYear": "{poet}, {year}",
-  "@poetAndYear": {"placeholders": {"poet": {"type": "String"}, "year": {"type": "int", "format": "decimalPattern"}}},
+  "@poetAndYear": {"placeholders": {"poet": {"type": "String"}, "year": {"type": "String"}}},
   "poetYears": "{born} to {died}",
   "@poetYears": {"placeholders": {"born": {"type": "int"}, "died": {"type": "int"}}},
   "poetLife": "{born} to {died} · {count, plural, =1{1 poem} other{{count} poems}}",

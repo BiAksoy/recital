@@ -164,7 +164,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'{poet}, {year}'**
-  String poetAndYear(String poet, int year);
+  String poetAndYear(String poet, String year);
 
   /// No description provided for @poetYears.
   ///
