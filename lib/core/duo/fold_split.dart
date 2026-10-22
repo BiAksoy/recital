@@ -53,7 +53,10 @@ class _FoldSplitState extends State<FoldSplit> {
   @override
   Widget build(BuildContext context) {
     final layout = ScreenLayout.of(context);
-    WidgetsBinding.instance.addPostFrameCallback(_measure);
+    // Where this widget is matters only to place a fold in it.
+    if (layout.fold != null) {
+      WidgetsBinding.instance.addPostFrameCallback(_measure);
+    }
     return LayoutBuilder(
       builder: (context, constraints) {
         final size = constraints.biggest;

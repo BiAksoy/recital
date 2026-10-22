@@ -36,62 +36,66 @@ class HomeShellPage extends StatelessWidget {
           router.setActiveIndex(index);
         }
 
+        // One shape whatever the pose, so a pose change keeps every tab's pages: the
+        // tabs along the bottom, or at the foot of iPhone Duo's side column.
         final column = ScreenLayout.columnOf(context);
-        if (column == null) {
-          return Scaffold(
-            body: child,
-            bottomNavigationBar: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const MiniPlayer(),
-                NavigationBar(
-                  selectedIndex: router.activeIndex,
-                  onDestinationSelected: select,
-                  destinations: [
-                    for (final tab in tabs)
-                      NavigationDestination(
-                        icon: Icon(tab.icon),
-                        selectedIcon: Icon(tab.selectedIcon),
-                        label: tab.label,
-                      ),
-                  ],
-                ),
-              ],
-            ),
-          );
-        }
-        final onLeft = column.side == BarSide.left;
+        final onLeft = column?.side == BarSide.left;
         return SideRailExtent(
-          extent: tabs.length * _sideTabExtent + column.bottom,
+          extent: column == null
+              ? 0
+              : tabs.length * _sideTabExtent + column.bottom,
           child: Stack(
             children: [
               Scaffold(
                 body: child,
-                // The mini player stays under the page, beside the column.
-                bottomNavigationBar: Padding(
-                  padding: EdgeInsets.only(
-                    left: onLeft ? column.width : 0,
-                    right: onLeft ? 0 : column.width,
-                  ),
-                  child: MediaQuery.removePadding(
-                    context: context,
-                    removeLeft: true,
-                    removeRight: true,
-                    child: const SafeArea(top: false, child: MiniPlayer()),
+                bottomNavigationBar: column == null
+                    ? Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const MiniPlayer(),
+                          NavigationBar(
+                            selectedIndex: router.activeIndex,
+                            onDestinationSelected: select,
+                            destinations: [
+                              for (final tab in tabs)
+                                NavigationDestination(
+                                  icon: Icon(tab.icon),
+                                  selectedIcon: Icon(tab.selectedIcon),
+                                  label: tab.label,
+                                ),
+                            ],
+                          ),
+                        ],
+                      )
+                    // The mini player stays under the page, beside the column.
+                    : Padding(
+                        padding: EdgeInsets.only(
+                          left: onLeft ? column.width : 0,
+                          right: onLeft ? 0 : column.width,
+                        ),
+                        child: MediaQuery.removePadding(
+                          context: context,
+                          removeLeft: true,
+                          removeRight: true,
+                          child: const SafeArea(
+                            top: false,
+                            child: MiniPlayer(),
+                          ),
+                        ),
+                      ),
+              ),
+              if (column != null)
+                Positioned(
+                  left: onLeft ? 0 : null,
+                  right: onLeft ? null : 0,
+                  bottom: column.bottom,
+                  width: column.width,
+                  child: _SideTabs(
+                    tabs: tabs,
+                    selected: router.activeIndex,
+                    onSelected: select,
                   ),
                 ),
-              ),
-              Positioned(
-                left: onLeft ? 0 : null,
-                right: onLeft ? null : 0,
-                bottom: column.bottom,
-                width: column.width,
-                child: _SideTabs(
-                  tabs: tabs,
-                  selected: router.activeIndex,
-                  onSelected: select,
-                ),
-              ),
             ],
           ),
         );

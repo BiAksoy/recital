@@ -12,7 +12,7 @@ import 'package:recital/core/theme/theme_context.dart';
 /// Back first as Apple orders them, and the title stays in a slimmer row over the content.
 /// Actions that do not fit above the tabs stay in that row, as text items stay in the
 /// system's horizontal bar.
-class PageScaffold extends StatelessWidget {
+class PageScaffold extends StatefulWidget {
   const PageScaffold({
     required this.title,
     required this.body,
@@ -33,8 +33,33 @@ class PageScaffold extends StatelessWidget {
   final List<Widget> actions;
   final Color? backgroundColor;
 
+  /// The button [AppBar] would put first on this route: close on a full-screen dialog,
+  /// back on any other page with one under it.
+  static Widget? impliedLeading(BuildContext context) {
+    final route = ModalRoute.of(context);
+    if (!(route?.impliesAppBarDismissal ?? false)) return null;
+    return route is PageRoute && route.fullscreenDialog
+        ? const CloseButton()
+        : const BackButton();
+  }
+
+  @override
+  State<PageScaffold> createState() => _PageScaffoldState();
+}
+
+class _PageScaffoldState extends State<PageScaffold> {
+  /// Moves the page's body, with its state, between the two layouts: a pose change that
+  /// brings or takes away the side column must not lose what was typed or how far the
+  /// page was scrolled, as Apple asks the state to stay the same across poses.
+  final GlobalKey _bodyKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
+    final title = widget.title;
+    final leading = widget.leading;
+    final actions = widget.actions;
+    final backgroundColor = widget.backgroundColor;
+    final body = KeyedSubtree(key: _bodyKey, child: widget.body);
     final column = ScreenLayout.columnOf(context);
     if (column == null) {
       return Scaffold(
@@ -43,7 +68,7 @@ class PageScaffold extends StatelessWidget {
         body: body,
       );
     }
-    final leadingItem = leading ?? impliedLeading(context);
+    final leadingItem = leading ?? PageScaffold.impliedLeading(context);
     // Text buttons stay in the title row, as text items stay in the system's horizontal
     // bar; the icons go to the column.
     final icons = [
@@ -87,16 +112,6 @@ class PageScaffold extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  /// The button [AppBar] would put first on this route: close on a full-screen dialog,
-  /// back on any other page with one under it.
-  static Widget? impliedLeading(BuildContext context) {
-    final route = ModalRoute.of(context);
-    if (!(route?.impliesAppBarDismissal ?? false)) return null;
-    return route is PageRoute && route.fullscreenDialog
-        ? const CloseButton()
-        : const BackButton();
   }
 }
 

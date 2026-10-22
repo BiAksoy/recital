@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -68,11 +69,26 @@ class _HeldPlayer extends PlayerController {
 
 /// The app on a surface [size] points with the Duo's insets: the side column on the
 /// right while bars are on the side, the status bar along the top otherwise.
+void _surface(WidgetTester tester, Size size, {required bool sideColumn}) {
+  const ratio = 3.0;
+  final padding = FakeViewPadding(
+    right: sideColumn ? 84 * ratio : 0,
+    top: sideColumn ? 0 : 82 * ratio,
+    bottom: 34 * ratio,
+  );
+  tester.view
+    ..physicalSize = size * ratio
+    ..devicePixelRatio = ratio
+    ..padding = padding
+    ..viewPadding = padding;
+}
+
 Future<void> _pumpApp(
   WidgetTester tester,
   Size size,
   ScreenGeometry geometry, {
   bool playing = false,
+  ValueListenable<ScreenGeometry>? changes,
 }) async {
   const ratio = 3.0;
   final sideColumn = geometry.barSide != null;
@@ -91,7 +107,15 @@ Future<void> _pumpApp(
     ProviderScope(
       overrides: [
         catalogProvider.overrideWith((ref) async => _catalog),
-        screenGeometryProvider.overrideWithValue(geometry),
+        if (changes == null)
+          screenGeometryProvider.overrideWithValue(geometry)
+        else
+          screenGeometryProvider.overrideWith((ref) {
+            void changed() => ref.invalidateSelf();
+            changes.addListener(changed);
+            ref.onDispose(() => changes.removeListener(changed));
+            return changes.value;
+          }),
         if (playing) playerControllerProvider.overrideWith(_HeldPlayer.new),
       ],
       child: const App(),
@@ -165,5 +189,26 @@ void main() {
       tester.getRect(find.byTooltip('Play')).top,
       greaterThanOrEqualTo(_tableFold.bottom),
     );
+  });
+
+  testWidgets('a change of pose keeps the page a tab has open', (tester) async {
+    final geometry = ValueNotifier(_closed);
+    addTearDown(geometry.dispose);
+    addTearDown(tester.view.reset);
+    await _pumpApp(tester, _outer, _closed, changes: geometry);
+    await tester.tap(find.byTooltip('Poems'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Ozymandias of Egypt'));
+    await tester.pumpAndSettle();
+
+    _surface(tester, _innerTall, sideColumn: false);
+    geometry.value = const ScreenGeometry(
+      screen: _innerTall,
+      hinge: Hinge.fullyOpen,
+    );
+    await tester.pumpAndSettle();
+    expect(find.byType(NavigationBar), findsOneWidget);
+    expect(find.byType(BackButton), findsOneWidget);
+    expect(find.text('Ozymandias of Egypt'), findsWidgets);
   });
 }

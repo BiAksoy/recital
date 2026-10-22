@@ -137,3 +137,50 @@ class TwoColumnSliverList extends StatelessWidget {
           );
   }
 }
+
+/// Builds a sliver for one column or two, as [ScreenLayout.twoColumns] decides from the
+/// sliver's own width. The width is read from the sliver's constraints, which change with
+/// every frame of a scroll; the built sliver is kept while the answer stays the same, so
+/// scrolling does not rebuild the rows.
+class TwoColumnsBuilder extends StatefulWidget {
+  const TwoColumnsBuilder({required this.builder, super.key});
+
+  final Widget Function(BuildContext context, {required bool twoColumns})
+  builder;
+
+  @override
+  State<TwoColumnsBuilder> createState() => _TwoColumnsBuilderState();
+}
+
+class _TwoColumnsBuilderState extends State<TwoColumnsBuilder> {
+  (bool, Widget)? _built;
+
+  @override
+  void didUpdateWidget(TwoColumnsBuilder oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    _built = null;
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _built = null;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverLayoutBuilder(
+      builder: (context, constraints) {
+        final wide = ScreenLayout.twoColumns(
+          context,
+          constraints.crossAxisExtent,
+        );
+        final built = _built;
+        if (built != null && built.$1 == wide) return built.$2;
+        final sliver = widget.builder(context, twoColumns: wide);
+        _built = (wide, sliver);
+        return sliver;
+      },
+    );
+  }
+}

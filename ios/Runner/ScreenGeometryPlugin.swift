@@ -30,12 +30,18 @@ final class ScreenGeometryPlugin: NSObject, FlutterStreamHandler {
 
   private init(registrar: FlutterPluginRegistrar) {
     self.registrar = registrar
+    super.init()
+    // A scene that reconnects brings a new Flutter view; the probe follows it.
+    NotificationCenter.default.addObserver(
+      self, selector: #selector(attach),
+      name: UIApplication.didBecomeActiveNotification, object: nil)
   }
 
   func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink)
     -> FlutterError?
   {
     sink = events
+    attachAttempts = 0
     attach()
     return nil
   }
@@ -48,10 +54,15 @@ final class ScreenGeometryPlugin: NSObject, FlutterStreamHandler {
   }
 
   /// The view controller arrives after the engine, so a listener that comes early waits for
-  /// it.
-  private func attach() {
-    guard sink != nil, probe == nil else { return }
-    guard let host = registrar.viewController?.view else {
+  /// it. A probe left on a view that is no longer the Flutter view, or out of its window, is
+  /// replaced.
+  @objc private func attach() {
+    guard sink != nil else { return }
+    let host = registrar.viewController?.view
+    if let probe, probe.window != nil, probe.superview === host { return }
+    probe?.removeFromSuperview()
+    probe = nil
+    guard let host else {
       attachAttempts += 1
       if attachAttempts < 40 {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { [weak self] in self?.attach() }

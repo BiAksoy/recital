@@ -3,19 +3,22 @@
 # the device's poses: closed, open, partially open like a book, partially open on its side
 # like a laptop (tabletop), and open upright (DEC-3).
 #
-#     scripts/duo/tour.sh <simulator udid> <output folder> [here]
+#     scripts/duo/tour.sh <simulator udid> <output folder> [here | record <shots>]
 #
 # Needs Xcode 27.1's Device Hub open on the device (it has the only pose controls), the
 # Mac unlocked (Device Hub has no window while it is locked) and Accessibility permission
 # for the terminal. The device starts and ends closed. With `here`, the device stays in
-# the pose it is in and both displays are captured, the one not in use black.
+# the pose it is in and both displays are captured, the one not in use black. With
+# `record` and a comma-separated list of shot names (`player,pdf`), those screens are also
+# recorded through every pose, the outer and inner displays side by side in one video.
 set -euo pipefail
 cd "$(dirname "$0")/../.."
 . scripts/toolchain.sh
 
 udid=$1
 out=$2
-here=${3:-}
+mode=${3:-}
+record=${4:-}
 mkdir -p "$out" build
 swiftc -O scripts/duo/duo_pose.swift -o build/duo_pose
 sync_dir=$(mktemp -d)
@@ -26,9 +29,29 @@ pose() { build/duo_pose "$1" || echo "   could not press $1"; sleep 4; }
 # The outer display is "primary" and the inner one "primary-1".
 capture() { xcrun simctl io "$udid" screenshot --display="$2" "$out/${1}.png" > /dev/null 2>&1 || echo "   no screenshot of $1"; }
 
+# Records both displays while [poses] runs, then puts them side by side.
+recorded() {
+  local shot=$1
+  xcrun simctl io "$udid" recordVideo --force --codec=h264 --display=primary \
+    "$out/${shot}__outer.mov" 2> /dev/null &
+  local outer=$!
+  xcrun simctl io "$udid" recordVideo --force --codec=h264 --display=primary-1 \
+    "$out/${shot}__inner.mov" 2> /dev/null &
+  local inner=$!
+  sleep 2
+  poses "$shot"
+  sleep 2
+  kill -INT "$outer" "$inner"
+  wait "$outer" "$inner" || true
+  ffmpeg -loglevel error -y -i "$out/${shot}__outer.mov" -i "$out/${shot}__inner.mov" \
+    -filter_complex "[0]scale=-2:1080,setsar=1[a];[1]scale=-2:1080,setsar=1[b];[a][b]hstack=inputs=2" \
+    -c:v libx264 -pix_fmt yuv420p -crf 26 "$out/${shot}.mp4" &&
+    rm "$out/${shot}__outer.mov" "$out/${shot}__inner.mov"
+}
+
 poses() {
   local shot=$1
-  if [ "$here" = here ]; then
+  if [ "$mode" = here ]; then
     capture "${shot}__outer" primary
     capture "${shot}__inner" primary-1
     return
@@ -49,7 +72,7 @@ poses() {
   pose Closed
 }
 
-[ "$here" = here ] || pose Closed
+[ "$mode" = here ] || pose Closed
 flutter test integration_test/screens_tour_test.dart -d "$udid" \
   --dart-define=DUO_TOUR_SYNC="$sync_dir" > "$log" 2>&1 &
 tour=$!
@@ -60,7 +83,11 @@ while kill -0 "$tour" 2> /dev/null; do
   if [ "$count" -gt "$seen" ]; then
     shot=$(printf '%s\n' "$shots" | sed -n "$((seen + 1))p")
     echo "== $shot"
-    poses "$shot"
+    if [ "$mode" = record ] && printf ',%s,' "$record" | grep -q ",${shot#*_},"; then
+      recorded "$shot"
+    else
+      poses "$shot"
+    fi
     touch "$sync_dir/$shot.done"
     seen=$((seen + 1))
   fi
