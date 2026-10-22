@@ -1,1 +1,10 @@
-milestones: []
+milestones:
+  - id: m1
+    title: The demo
+    tasks:
+      - id: m1.duo
+        title: Every screen designed for iPhone Duo's poses
+        done: 2026-10-22
+        acceptance:
+          - Today, the lists, a poem, a poet and the player follow DEC-3 closed, open, folded like a book, on a table and open upright
+          - Screenshots and recordings of every pose in ~/Desktop/iphone-duo/demo/
