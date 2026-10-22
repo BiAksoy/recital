@@ -1,0 +1,16 @@
+# Work order: the first task is what happens next. Done tasks move to backlog-done.yaml.
+milestones:
+  - id: m1
+    title: The demo
+    goal: A small app that shows Apple's iPhone Duo guidance applied in Flutter, for a post on biaksoy.dev.
+    tasks:
+      - id: m1.duo
+        title: Every screen designed for iPhone Duo's poses
+        status: doing
+        acceptance:
+          - Today, the lists, a poem, a poet and the player follow DEC-3 closed, open, folded like a book, on a table and open upright
+          - Screenshots and recordings of every pose in ~/Desktop/iphone-duo/demo/
+      - id: m1.publish
+        title: A GitHub repository and the post
+        status: todo
+        notes: Bilal creates the repository and writes the post himself.

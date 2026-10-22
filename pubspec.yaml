@@ -1,0 +1,38 @@
+name: recital
+description: "Recital: a public-domain poem a day, with LibriVox volunteers reading it. A demo of designing a Flutter app for iPhone Duo."
+publish_to: none
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.13.5
+  flutter: ">=3.47.7"
+
+dependencies:
+  auto_route: ^11.2.0
+  dart_mappable: ^4.10.0
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_riverpod: ^3.4.3
+  intl: ^0.20.3
+  # The recordings stream from archive.org (DEC-2).
+  just_audio: ^0.10.6
+  riverpod_annotation: ^4.0.7
+
+dev_dependencies:
+  auto_route_generator: ^10.6.0
+  build_runner: ^2.16.1
+  dart_mappable_builder: ^4.10.0
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  riverpod_generator: ^4.0.9
+  very_good_analysis: ^11.0.0
+
+flutter:
+  uses-material-design: true
+  generate: true
+  assets:
+    - assets/catalog.json

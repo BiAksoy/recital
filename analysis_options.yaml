@@ -1,0 +1,31 @@
+include: package:very_good_analysis/analysis_options.yaml
+
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.mapper.dart"
+    - "**/*.gr.dart"
+    - lib/l10n/generated/**
+    # SwiftPM vendors plugin packages into build/; the analyzer walks into them otherwise.
+    - build/**
+    - android/**
+    - ios/**
+
+linter:
+  rules:
+    avoid_catches_without_on_clauses: false
+    cascade_invocations: false
+    directives_ordering: false
+    flutter_style_todos: false
+    lines_longer_than_80_chars: false
+    public_member_api_docs: false
+    sort_constructors_first: false
+    # Classic constructors everywhere.
+    empty_container_bodies: false
+    unnecessary_const_in_enum_constructor: false
+    unnecessary_type_name_in_constructor: false
+
+# Exact pin: the analysis server resolves this from pub.dev at analyze time, outside
+# pubspec.lock, and 3.1.9 needs Dart 3.13.
+plugins:
+  riverpod_lint: 3.1.9
