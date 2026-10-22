@@ -167,10 +167,16 @@ From the SDK headers (**Apple**):
 ## How Flutter 3.47.7 sees it
 
 - **Measured**: Flutter's `PlatformDispatcher.displays` reports one display, 466 × 678, for
-  the whole session when the app starts closed; it does not change when the device opens.
+  the whole session, whether the app starts closed or open; it does not change when the
+  device opens or closes. On the simulator, `UIScreen.mainScreen` is the outer display.
   The engine reads `UIScreen.mainScreen` once, when the engine starts
   (`FlutterEngine.mm`, `updateDisplays`). Anything that decides "tablet" from it is wrong on
   the inner display.
+- **Measured**: the window scene's screen (`window.windowScene.screen.bounds`) does follow
+  the device: 466 × 678 closed, 951 × 669 open. Open and wide, the status bar and
+  Dynamic Island are an occlusion region 84 × 124 at the top of the side column; open and
+  upright, 144 × 82 at the top right; the inner camera is an inactive occlusion until a
+  camera is in use, and the fold a 40 pt division, inactive until partially open.
 - **Measured**: the view's size and safe area follow the pose. Closed upright: 466 × 678,
   right 84, bottom 34, top 0. Open: 951 × 669, right 84, bottom 34. Open upright:
   669 × 951, top 82, bottom 34. Closed and turned: 678 × 466, with the 84 on the left or the
