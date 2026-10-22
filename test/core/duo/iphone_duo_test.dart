@@ -211,4 +211,32 @@ void main() {
     expect(find.byType(BackButton), findsOneWidget);
     expect(find.text('Ozymandias of Egypt'), findsWidgets);
   });
+
+  testWidgets(
+    'closed and sideways, Back moves to the title row when the column is '
+    'too short',
+    (tester) async {
+      const sideways = Size(678, 466);
+      await _pumpApp(
+        tester,
+        sideways,
+        const ScreenGeometry(
+          screen: sideways,
+          hinge: Hinge.closed,
+          barSide: BarSide.right,
+          occlusions: [
+            ReservedRegion(Rect.fromLTWH(594, 0, 84, 260), active: true),
+          ],
+        ),
+      );
+      await tester.tap(find.byTooltip('Poems'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('A Noiseless Patient Spider'));
+      await tester.pumpAndSettle();
+      expect(
+        tester.getRect(find.byType(BackButton)).right,
+        lessThan(sideways.width - 84),
+      );
+    },
+  );
 }

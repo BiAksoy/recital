@@ -90,6 +90,8 @@ class _PageScaffoldState extends State<PageScaffold> {
           children: [
             AppBar(
               automaticallyImplyLeading: false,
+              // Back stays reachable when even it does not fit above the tabs.
+              leading: first == 1 && overflow.contains(0) ? leadingItem : null,
               title: title,
               centerTitle: false,
               actions: [

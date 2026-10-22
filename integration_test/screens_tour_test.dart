@@ -100,7 +100,8 @@ const _duoSync = String.fromEnvironment('DUO_TOUR_SYNC');
 Future<void> _holdForPoses(WidgetTester tester, String shotName) async {
   debugPrint('DUO_TOUR_SHOT $shotName');
   final done = File('$_duoSync/$shotName.done');
-  for (var i = 0; i < 1200 && !done.existsSync(); i++) {
+  // Up to three hours: the script waits out a locked Mac.
+  for (var i = 0; i < 108000 && !done.existsSync(); i++) {
     await tester.pump(const Duration(milliseconds: 100));
   }
   expect(done.existsSync(), isTrue, reason: 'tour.sh did not finish $shotName');

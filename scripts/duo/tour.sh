@@ -25,28 +25,70 @@ sync_dir=$(mktemp -d)
 log="$out/tour.log"
 trap 'rm -rf "$sync_dir"' EXIT
 
-pose() { build/duo_pose "$1" || echo "   could not press $1"; sleep 4; }
+# Device Hub has no window while the Mac is locked; a press waits for it to come back.
+pose() {
+  until build/duo_pose "$1"; do
+    echo "   waiting to press $1 (is the Mac locked?)"
+    sleep 30
+  done
+  sleep 4
+}
 # The outer display is "primary" and the inner one "primary-1".
 capture() { xcrun simctl io "$udid" screenshot --display="$2" "$out/${1}.png" > /dev/null 2>&1 || echo "   no screenshot of $1"; }
 
-# Records both displays while [poses] runs, then puts them side by side.
+# Starts recording [display] to [file]; prints the recorder's pid.
+start_recording() {
+  xcrun simctl io "$udid" recordVideo --force --codec=h264 --display="$1" "$2" \
+    > /dev/null 2>&1 &
+  echo $!
+}
+
+stop_recording() {
+  kill -INT "$1" 2> /dev/null || true
+  wait "$1" 2> /dev/null || true
+}
+
+# [poses] while recording: the outer display while closed, then the inner one from the
+# moment it opens (simctl cannot record a display that is off), joined into one video.
 recorded() {
   local shot=$1
-  xcrun simctl io "$udid" recordVideo --force --codec=h264 --display=primary \
-    "$out/${shot}__outer.mov" 2> /dev/null &
-  local outer=$!
-  xcrun simctl io "$udid" recordVideo --force --codec=h264 --display=primary-1 \
-    "$out/${shot}__inner.mov" 2> /dev/null &
-  local inner=$!
+  local outer inner
+  outer=$(start_recording primary "$out/${shot}__a.mov")
   sleep 2
-  poses "$shot"
-  sleep 2
-  kill -INT "$outer" "$inner"
-  wait "$outer" "$inner" || true
-  ffmpeg -loglevel error -y -i "$out/${shot}__outer.mov" -i "$out/${shot}__inner.mov" \
-    -filter_complex "[0]scale=-2:1080,setsar=1[a];[1]scale=-2:1080,setsar=1[b];[a][b]hstack=inputs=2" \
-    -c:v libx264 -pix_fmt yuv420p -crf 26 "$out/${shot}.mp4" &&
-    rm "$out/${shot}__outer.mov" "$out/${shot}__inner.mov"
+  capture "${shot}__1_closed" primary
+  build/duo_pose Open || true
+  sleep 1
+  inner=$(start_recording primary-1 "$out/${shot}__b.mov")
+  stop_recording "$outer"
+  sleep 3
+  capture "${shot}__2_open" primary-1
+  pose "Partially Open"
+  capture "${shot}__3_book" primary-1
+  pose "Rotate Right"
+  capture "${shot}__4_tabletop" primary-1
+  pose Open
+  capture "${shot}__5_open_tall" primary-1
+  stop_recording "$inner"
+  close_upright
+  ffmpeg -loglevel error -y -i "$out/${shot}__a.mov" -i "$out/${shot}__b.mov" \
+    -filter_complex "[0]scale=-2:1080,pad=1600:1080:(ow-iw)/2:0:white,setsar=1[a];[1]scale=1600:1080:force_original_aspect_ratio=decrease,pad=1600:1080:(ow-iw)/2:(oh-ih)/2:white,setsar=1[b];[a][b]concat=n=2:v=1[v]" \
+    -map "[v]" -c:v libx264 -pix_fmt yuv420p -crf 26 "$out/${shot}.mp4" &&
+    rm "$out/${shot}__a.mov" "$out/${shot}__b.mov" ||
+    echo "   could not join the recordings of $shot"
+}
+
+# Closes the device and turns it until the outer display is upright. A quarter turn
+# pressed while Device Hub animates can be lost, so the turns are checked, not counted.
+close_upright() {
+  pose Closed
+  local check="$sync_dir/check.png" width height
+  for _ in 1 2 3 4; do
+    xcrun simctl io "$udid" screenshot --display=primary "$check" > /dev/null 2>&1
+    width=$(sips -g pixelWidth "$check" | awk '/pixelWidth/ {print $2}')
+    height=$(sips -g pixelHeight "$check" | awk '/pixelHeight/ {print $2}')
+    [ "$width" -lt "$height" ] && return
+    pose "Rotate Right"
+  done
 }
 
 poses() {
@@ -65,14 +107,10 @@ poses() {
   capture "${shot}__4_tabletop" primary-1
   pose Open
   capture "${shot}__5_open_tall" primary-1
-  # Three more quarter turns bring the device back to where it started.
-  pose "Rotate Right"
-  pose "Rotate Right"
-  pose "Rotate Right"
-  pose Closed
+  close_upright
 }
 
-[ "$mode" = here ] || pose Closed
+[ "$mode" = here ] || close_upright
 flutter test integration_test/screens_tour_test.dart -d "$udid" \
   --dart-define=DUO_TOUR_SYNC="$sync_dir" > "$log" 2>&1 &
 tour=$!
