@@ -1,0 +1,1022 @@
+{
+ "sources": {
+  "audio": "LibriVox via archive.org, public domain",
+  "audioMetadata": "https://archive.org/metadata/<identifier> (item title, description, licenseurl; per-file title and length)",
+  "texts": "Wikisource (en.wikisource.org) transcriptions of scanned editions and Project Gutenberg eBooks; each poem gives its textSource and textEdition",
+  "librivoxTexts": "The text each LibriVox project read was identified from the 'Online text' link on its librivox.org catalog page; the linked bartleby.com pages were read through web.archive.org because bartleby.com refused direct requests",
+  "dates": "English Wikipedia, linked per poet and per poem",
+  "retrieved": "2026-10-22"
+ },
+ "poets": [
+  {
+   "id": "shelley",
+   "name": "Percy Bysshe Shelley",
+   "born": 1792,
+   "died": 1822,
+   "source": "https://en.wikipedia.org/wiki/Percy_Bysshe_Shelley"
+  },
+  {
+   "id": "wordsworth",
+   "name": "William Wordsworth",
+   "born": 1770,
+   "died": 1850,
+   "source": "https://en.wikipedia.org/wiki/William_Wordsworth"
+  },
+  {
+   "id": "carroll",
+   "name": "Lewis Carroll",
+   "born": 1832,
+   "died": 1898,
+   "source": "https://en.wikipedia.org/wiki/Lewis_Carroll"
+  },
+  {
+   "id": "lear",
+   "name": "Edward Lear",
+   "born": 1812,
+   "died": 1888,
+   "source": "https://en.wikipedia.org/wiki/Edward_Lear"
+  },
+  {
+   "id": "whitman",
+   "name": "Walt Whitman",
+   "born": 1819,
+   "died": 1892,
+   "source": "https://en.wikipedia.org/wiki/Walt_Whitman"
+  },
+  {
+   "id": "shakespeare",
+   "name": "William Shakespeare",
+   "born": 1564,
+   "died": 1616,
+   "source": "https://en.wikipedia.org/wiki/William_Shakespeare"
+  },
+  {
+   "id": "carman",
+   "name": "Bliss Carman",
+   "born": 1861,
+   "died": 1929,
+   "source": "https://en.wikipedia.org/wiki/Bliss_Carman"
+  },
+  {
+   "id": "stevenson",
+   "name": "Robert Louis Stevenson",
+   "born": 1850,
+   "died": 1894,
+   "source": "https://en.wikipedia.org/wiki/Robert_Louis_Stevenson"
+  },
+  {
+   "id": "yeats",
+   "name": "William Butler Yeats",
+   "born": 1865,
+   "died": 1939,
+   "source": "https://en.wikipedia.org/wiki/W._B._Yeats"
+  },
+  {
+   "id": "frost",
+   "name": "Robert Frost",
+   "born": 1874,
+   "died": 1963,
+   "source": "https://en.wikipedia.org/wiki/Robert_Frost"
+  }
+ ],
+ "poems": [
+  {
+   "id": "ozymandias",
+   "title": "Ozymandias of Egypt",
+   "poetId": "shelley",
+   "year": 1818,
+   "yearSource": "https://en.wikipedia.org/wiki/Ozymandias",
+   "lines": [
+    "I met a traveller from an antique land",
+    "Who said: \"Two vast and trunkless legs of stone",
+    "Stand in the desert. Near them on the sand,",
+    "Half sunk, a shatter'd visage lies, whose frown",
+    "And wrinkled lip and sneer of cold command",
+    "Tell that its sculptor well those passions read",
+    "Which yet survive, stamp'd on these lifeless things,",
+    "The hand that mock'd them and the heart that fed;",
+    "And on the pedestal these words appear:",
+    "'My name is Ozymandias, king of kings:",
+    "Look on my works, ye Mighty, and despair!'",
+    "Nothing beside remains. Round the decay",
+    "Of that colossal wreck, boundless and bare,",
+    "The lone and level sands stretch far away.\""
+   ],
+   "textSource": "https://en.wikisource.org/wiki/Poems_That_Every_Child_Should_Know/Ozymandias_of_Egypt",
+   "textEdition": "Poems That Every Child Should Know, ed. Mary Elizabeth Burt (1904), pp. 322-323, where it is titled \"Ozymandias of Egypt\"",
+   "librivox": {
+    "identifier": "ozymandias_librivox",
+    "week": "August 20th, 2006",
+    "license": "http://creativecommons.org/licenses/publicdomain/",
+    "page": "https://archive.org/details/ozymandias_librivox"
+   },
+   "recordings": [
+    {
+     "reader": "ADD",
+     "duration": "01:28",
+     "url": "https://archive.org/download/ozymandias_librivox/ozymandias_of_egypt_shelley_add_64kb.mp3"
+    },
+    {
+     "reader": "APC",
+     "duration": "01:18",
+     "url": "https://archive.org/download/ozymandias_librivox/ozymandias_of_egypt_shelley_apc_64kb.mp3"
+    },
+    {
+     "reader": "DB",
+     "duration": "01:42",
+     "url": "https://archive.org/download/ozymandias_librivox/ozymandias_of_egypt_shelley_db_64kb.mp3"
+    },
+    {
+     "reader": "GW",
+     "duration": "01:36",
+     "url": "https://archive.org/download/ozymandias_librivox/ozymandias_of_egypt_shelley_gw_64kb.mp3"
+    },
+    {
+     "reader": "JB",
+     "duration": "01:18",
+     "url": "https://archive.org/download/ozymandias_librivox/ozymandias_of_egypt_shelley_jb_64kb.mp3"
+    },
+    {
+     "reader": "KJB",
+     "duration": "01:14",
+     "url": "https://archive.org/download/ozymandias_librivox/ozymandias_of_egypt_shelley_kjb_64kb.mp3"
+    },
+    {
+     "reader": "KLH",
+     "duration": "01:15",
+     "url": "https://archive.org/download/ozymandias_librivox/ozymandias_of_egypt_shelley_klh_64kb.mp3"
+    },
+    {
+     "reader": "KT",
+     "duration": "01:25",
+     "url": "https://archive.org/download/ozymandias_librivox/ozymandias_of_egypt_shelley_kmt_64kb.mp3"
+    }
+   ],
+   "note": "LibriVox recorded the poem as \"Ozymandias of Egypt\" (the archive.org item title and every file title). Its catalog page's 'Online text' link points back to the archive.org item, so the exact text the readers used is not recorded; this text comes from an anthology that uses the same title. Shelley's title in The Examiner (11 January 1818) was \"Ozymandias\". The app uses the recorded title."
+  },
+  {
+   "id": "wandered",
+   "title": "I Wandered Lonely as a Cloud",
+   "poetId": "wordsworth",
+   "year": 1807,
+   "yearSource": "https://en.wikipedia.org/wiki/I_Wandered_Lonely_as_a_Cloud",
+   "lines": [
+    "I wandered lonely as a Cloud",
+    "That floats on high o'er Vales and Hills,",
+    "When all at once I saw a crowd,",
+    "A host of golden Daffodils;",
+    "Beside the Lake, beneath the trees,",
+    "Fluttering and dancing in the breeze.",
+    "",
+    "Continuous as the stars that shine",
+    "And twinkle on the milky way,",
+    "They stretched in never-ending line",
+    "Along the margin of a bay:",
+    "Ten thousand saw I at a glance,",
+    "Tossing their heads in sprightly dance.",
+    "",
+    "The waves beside them danced, but they",
+    "Out-did the sparkling waves in glee:—",
+    "A Poet could not but be gay",
+    "In such a jocund company:",
+    "I gazed—and gazed—but little thought",
+    "What wealth the shew to me had brought:",
+    "",
+    "For oft when on my couch I lie",
+    "In vacant or in pensive mood,",
+    "They flash upon that inward eye",
+    "Which is the bliss of solitude,",
+    "And then my heart with pleasure fills,",
+    "And dances with the Daffodils."
+   ],
+   "textSource": "https://en.wikisource.org/wiki/Poems_(Wordsworth,_1815)/Volume_1/I_wandered_lonely",
+   "textEdition": "Poems by William Wordsworth, Volume I (1815), pp. 328-329: the revised four-stanza version",
+   "librivox": {
+    "identifier": "wandered_lonely_as_a_cloud_librivox",
+    "week": "14 May 2006",
+    "license": "http://creativecommons.org/licenses/publicdomain/",
+    "page": "https://archive.org/details/wandered_lonely_as_a_cloud_librivox"
+   },
+   "recordings": [
+    {
+     "reader": "APC",
+     "duration": "01:38",
+     "url": "https://archive.org/download/wandered_lonely_as_a_cloud_librivox/wandered_lonely_wordsworth_apc_64kb.mp3"
+    },
+    {
+     "reader": "D.J.",
+     "duration": "01:34",
+     "url": "https://archive.org/download/wandered_lonely_as_a_cloud_librivox/wandered_lonely_wordsworth_dj_64kb.mp3"
+    },
+    {
+     "reader": "DJS",
+     "duration": "01:22",
+     "url": "https://archive.org/download/wandered_lonely_as_a_cloud_librivox/wandered_lonely_wordsworth_djs_64kb.mp3"
+    },
+    {
+     "reader": "GW",
+     "duration": "01:37",
+     "url": "https://archive.org/download/wandered_lonely_as_a_cloud_librivox/wandered_lonely_wordsworth_gw_64kb.mp3"
+    },
+    {
+     "reader": "JB",
+     "duration": "01:47",
+     "url": "https://archive.org/download/wandered_lonely_as_a_cloud_librivox/wandered_lonely_wordsworth_jb_64kb.mp3"
+    },
+    {
+     "reader": "JPP",
+     "duration": "01:11",
+     "url": "https://archive.org/download/wandered_lonely_as_a_cloud_librivox/wandered_lonely_wordsworth_jpp_64kb.mp3"
+    },
+    {
+     "reader": "KZ",
+     "duration": "01:31",
+     "url": "https://archive.org/download/wandered_lonely_as_a_cloud_librivox/wandered_lonely_wordsworth_kz_64kb.mp3"
+    },
+    {
+     "reader": "LF",
+     "duration": "01:43",
+     "url": "https://archive.org/download/wandered_lonely_as_a_cloud_librivox/wandered_lonely_wordsworth_lf_64kb.mp3"
+    }
+   ],
+   "note": "LibriVox's catalog page links to the text in Wordsworth's Complete Poetical Works (1888) on Bartleby, which is the four-stanza version first printed in 1815, not the three-stanza 1807 text. This is the 1815 printing. The 1888 text has the same words except 'shew' (1888: 'show') and differs in capitals and punctuation (for example 1888: 'A host, of golden daffodils;'). The poem was first published in 1807 in Poems, in Two Volumes. The numeral XIII and Wordsworth's footnote on the 1815 page are omitted."
+  },
+  {
+   "id": "jabberwocky",
+   "title": "Jabberwocky",
+   "poetId": "carroll",
+   "year": 1871,
+   "yearSource": "https://en.wikipedia.org/wiki/Through_the_Looking-Glass",
+   "lines": [
+    "’Twas brillig, and the slithy toves",
+    "Did gyre and gimble in the wabe;",
+    "All mimsy were the borogoves,",
+    "And the mome raths outgrabe.",
+    "",
+    "“Beware the Jabberwock, my son!",
+    "The jaws that bite, the claws that catch!",
+    "Beware the Jubjub bird, and shun",
+    "The frumious Bandersnatch!”",
+    "",
+    "He took his vorpal sword in hand:",
+    "Long time the manxome foe he sought—",
+    "So rested he by the Tumtum tree,",
+    "And stood awhile in thought.",
+    "",
+    "And as in uffish thought he stood,",
+    "The Jabberwock, with eyes of flame,",
+    "Came whiffling through the tulgey wood,",
+    "And burbled as it came!",
+    "",
+    "One, two! One, two! And through and through",
+    "The vorpal blade went snicker-snack!",
+    "He left it dead, and with its head",
+    "He went galumphing back.",
+    "",
+    "“And hast thou slain the Jabberwock?",
+    "Come to my arms, my beamish boy!",
+    "O frabjous day! Callooh! Callay!”",
+    "He chortled in his joy.",
+    "",
+    "’Twas brillig, and the slithy toves",
+    "Did gyre and gimble in the wabe;",
+    "All mimsy were the borogoves,",
+    "And the mome raths outgrabe."
+   ],
+   "textSource": "https://www.gutenberg.org/ebooks/12",
+   "textEdition": "Through the Looking-Glass, and What Alice Found There, chapter I, Project Gutenberg eBook #12 (Millennium Fulcrum Edition 1.7)",
+   "librivox": {
+    "identifier": "jabberwocky_librivox",
+    "week": "January 21st, 2007",
+    "license": "http://creativecommons.org/licenses/publicdomain/",
+    "page": "https://archive.org/details/jabberwocky_librivox"
+   },
+   "recordings": [
+    {
+     "reader": "ACP",
+     "duration": "01:48",
+     "url": "https://archive.org/download/jabberwocky_librivox/jabberwocky_carroll_acp_64kb.mp3"
+    },
+    {
+     "reader": "ADD",
+     "duration": "02:07",
+     "url": "https://archive.org/download/jabberwocky_librivox/jabberwocky_carroll_add1_64kb.mp3"
+    },
+    {
+     "reader": "ADD2",
+     "duration": "02:09",
+     "url": "https://archive.org/download/jabberwocky_librivox/jabberwocky_carroll_add2_64kb.mp3"
+    },
+    {
+     "reader": "APC",
+     "duration": "01:40",
+     "url": "https://archive.org/download/jabberwocky_librivox/jabberwocky_carroll_apc_64kb.mp3"
+    },
+    {
+     "reader": "ARC",
+     "duration": "01:51",
+     "url": "https://archive.org/download/jabberwocky_librivox/jabberwocky_carroll_arc_64kb.mp3"
+    },
+    {
+     "reader": "BB",
+     "duration": "01:26",
+     "url": "https://archive.org/download/jabberwocky_librivox/jabberwocky_carroll_bb_64kb.mp3"
+    },
+    {
+     "reader": "CCG",
+     "duration": "01:23",
+     "url": "https://archive.org/download/jabberwocky_librivox/jabberwocky_carroll_ccg_64kb.mp3"
+    },
+    {
+     "reader": "CE",
+     "duration": "02:02",
+     "url": "https://archive.org/download/jabberwocky_librivox/jabberwocky_carroll_ce_64kb.mp3"
+    }
+   ],
+   "note": "LibriVox's catalog page links to the text in Stedman's A Victorian Anthology (1895) on Bartleby; it has the same words and lines as this text. Through the Looking-Glass went on sale in December 1871 with 1872 on its title page. The Wikisource scan of the 1872 first edition was not used because it carries a printer's error ('wade' for 'wabe') in line 2."
+  },
+  {
+   "id": "owl",
+   "title": "The Owl and the Pussy-Cat",
+   "poetId": "lear",
+   "year": 1870,
+   "yearSource": "https://en.wikipedia.org/wiki/The_Owl_and_the_Pussy-Cat",
+   "lines": [
+    "The Owl and the Pussy-Cat went to sea",
+    "In a beautiful pea-green boat:",
+    "They took some honey, and plenty of money",
+    "Wrapped up in a five-pound note.",
+    "The Owl looked up to the stars above,",
+    "And sang to a small guitar,",
+    "\"O lovely Pussy, O Pussy, my love,",
+    "What a beautiful Pussy you are,",
+    "You are,",
+    "You are!",
+    "What a beautiful Pussy you are!\"",
+    "",
+    "Pussy said to the Owl, \"You elegant fowl,",
+    "How charmingly sweet you sing!",
+    "Oh! let us be married; too long we have tarried:",
+    "But what shall we do for a ring?\"",
+    "They sailed away, for a year and a day,",
+    "To the land where the bong-tree grows;",
+    "And there in a wood a Piggy-wig stood,",
+    "With a ring at the end of his nose,",
+    "His nose,",
+    "His nose,",
+    "With a ring at the end of his nose.",
+    "",
+    "\"Dear Pig, are you willing to sell for one shilling",
+    "Your ring?\" Said the Piggy, \"I will.\"",
+    "So they took it away, and were married next day",
+    "By the Turkey who lives on the hill.",
+    "They dined on mince and slices of quince,",
+    "Which they ate with a runcible spoon;",
+    "And hand in hand, on the edge of the sand,",
+    "They danced by the light of the moon,",
+    "The moon,",
+    "The moon,",
+    "They danced by the light of the moon."
+   ],
+   "textSource": "https://www.gutenberg.org/ebooks/13650",
+   "textEdition": "Nonsense Books by Edward Lear, 1894 edition, Project Gutenberg eBook #13650 (from Nonsense Songs, Stories, Botany, and Alphabets, 1871)",
+   "librivox": {
+    "identifier": "owl_pussycat_librivox",
+    "week": "January 22, 2006",
+    "license": "http://creativecommons.org/licenses/publicdomain/",
+    "page": "https://archive.org/details/owl_pussycat_librivox"
+   },
+   "recordings": [
+    {
+     "reader": "ab",
+     "duration": "01:37",
+     "url": "https://archive.org/download/owl_pussycat_librivox/owlpussycat_lear_ab_64kb.mp3"
+    },
+    {
+     "reader": "apc",
+     "duration": "01:58",
+     "url": "https://archive.org/download/owl_pussycat_librivox/owlpussycat_lear_apc_64kb.mp3"
+    },
+    {
+     "reader": "bf",
+     "duration": "01:27",
+     "url": "https://archive.org/download/owl_pussycat_librivox/owlpussycat_lear_bf_64kb.mp3"
+    },
+    {
+     "reader": "blb",
+     "duration": "01:46",
+     "url": "https://archive.org/download/owl_pussycat_librivox/owlpussycat_lear_blb_64kb.mp3"
+    },
+    {
+     "reader": "ce",
+     "duration": "01:59",
+     "url": "https://archive.org/download/owl_pussycat_librivox/owlpussycat_lear_ce_64kb.mp3"
+    },
+    {
+     "reader": "cd",
+     "duration": "01:40",
+     "url": "https://archive.org/download/owl_pussycat_librivox/owlpussycat_lear_chip_64kb.mp3"
+    },
+    {
+     "reader": "dh",
+     "duration": "01:46",
+     "url": "https://archive.org/download/owl_pussycat_librivox/owlpussycat_lear_dh_64kb.mp3"
+    },
+    {
+     "reader": "ge",
+     "duration": "01:54",
+     "url": "https://archive.org/download/owl_pussycat_librivox/owlpussycat_lear_ge_64kb.mp3"
+    }
+   ],
+   "note": "LibriVox's catalog page links to this Project Gutenberg eBook. The stanza numerals I, II and III printed above the stanzas are omitted. First published in 1870 in the American magazine Our Young Folks; the archive.org item description says 1871, the year of Lear's book. LibriVox titles it \"The Owl and the Pussycat\"."
+  },
+  {
+   "id": "spider",
+   "title": "A Noiseless Patient Spider",
+   "poetId": "whitman",
+   "year": 1868,
+   "yearSource": "https://en.wikipedia.org/wiki/A_Noiseless_Patient_Spider",
+   "lines": [
+    "A noiseless patient spider,",
+    "I mark’d where on a little promontory it stood isolated,",
+    "Mark’d how to explore the vacant vast surrounding,",
+    "It launch’d forth filament, filament, filament out of itself,",
+    "Ever unreeling them, ever tirelessly speeding them.",
+    "",
+    "And you O my soul where you stand,",
+    "Surrounded, detached, in measureless oceans of space,",
+    "Ceaselessly musing, venturing, throwing, seeking the spheres to connect them,",
+    "Till the bridge you will need be form’d, till the ductile anchor hold,",
+    "Till the gossamer thread you fling catch somewhere, O my soul."
+   ],
+   "textSource": "https://www.gutenberg.org/ebooks/1322",
+   "textEdition": "Leaves of Grass, Project Gutenberg eBook #1322 (the eBook does not name the print edition it follows)",
+   "librivox": {
+    "identifier": "patient_spider",
+    "week": "December 4, 2005",
+    "license": "http://creativecommons.org/licenses/publicdomain/",
+    "page": "https://archive.org/details/patient_spider"
+   },
+   "recordings": [
+    {
+     "reader": null,
+     "duration": "01:35",
+     "url": "https://archive.org/download/patient_spider/patient_spider_whitman_ac_64kb.mp3",
+     "fileTitle": "a_noiseless_patient_spider_ac"
+    },
+    {
+     "reader": null,
+     "duration": "01:13",
+     "url": "https://archive.org/download/patient_spider/patient_spider_whitman_blb_64kb.mp3",
+     "fileTitle": "a_noiseless_patient_spider_blb"
+    },
+    {
+     "reader": null,
+     "duration": "01:34",
+     "url": "https://archive.org/download/patient_spider/patient_spider_whitman_gm_64kb.mp3",
+     "fileTitle": "a_noiseless_patient_spider_gm"
+    },
+    {
+     "reader": null,
+     "duration": "01:30",
+     "url": "https://archive.org/download/patient_spider/patient_spider_whitman_ks_64kb.mp3",
+     "fileTitle": "a_noiseless_patient_spider_ks"
+    },
+    {
+     "reader": null,
+     "duration": "01:52",
+     "url": "https://archive.org/download/patient_spider/patient_spider_whitman_ol_64kb.mp3",
+     "fileTitle": "a_noiseless_patient_spider_ol"
+    },
+    {
+     "reader": null,
+     "duration": "01:29",
+     "url": "https://archive.org/download/patient_spider/patient_spider_whitman_py_64kb.mp3",
+     "fileTitle": "a_noiseless_patient_spider_py"
+    },
+    {
+     "reader": null,
+     "duration": "01:12",
+     "url": "https://archive.org/download/patient_spider/patient_spider_whitman_s_64kb.mp3",
+     "fileTitle": "a_noiseless_patient_spider_s"
+    },
+    {
+     "reader": null,
+     "duration": "00:52",
+     "url": "https://archive.org/download/patient_spider/patient_spider_witman_kr_64kb.mp3",
+     "fileTitle": "a_noiseless_patient_spider_kr"
+    }
+   ],
+   "note": "LibriVox's catalog page links to this Project Gutenberg eBook. The eBook wraps the line 'Ceaselessly musing, venturing, throwing, seeking the spheres to connect them,' over two lines; it is one line here. First printed in October 1868 in The Broadway as part 3 of 'Whispers of Heavenly Death'; the recorded text is the later, retitled version. The archive.org file titles (for example 'a_noiseless_patient_spider_ac') have no 'Read by', so each reader is null and fileTitle keeps the file title."
+  },
+  {
+   "id": "astronomer",
+   "title": "When I Heard the Learn'd Astronomer",
+   "poetId": "whitman",
+   "year": 1865,
+   "yearSource": "https://en.wikipedia.org/wiki/Drum-Taps",
+   "lines": [
+    "When I heard the learn'd astronomer,",
+    "When the proofs, the figures, were ranged in columns before me,",
+    "When I was shown the charts and diagrams, to add, divide, and measure them,",
+    "When I sitting heard the astronomer where he lectured with much applause in the lecture-room,",
+    "How soon unaccountable I became tired and sick,",
+    "Till rising and gliding out I wander'd off by myself,",
+    "In the mystical moist night-air, and from time to time,",
+    "Look'd up in perfect silence at the stars."
+   ],
+   "textSource": "https://en.wikisource.org/wiki/Leaves_of_Grass_(1882)/By_the_Roadside/When_I_Heard_the_Learn%27d_Astronomer",
+   "textEdition": "Leaves of Grass (1882), p. 214; the same text as Project Gutenberg eBook #1322",
+   "librivox": {
+    "identifier": "when_i_heard_the_learnd_astronomer_1702.poem_librivox",
+    "week": "February 19, 2017",
+    "license": "http://creativecommons.org/publicdomain/mark/1.0/",
+    "page": "https://archive.org/details/when_i_heard_the_learnd_astronomer_1702.poem_librivox"
+   },
+   "recordings": [
+    {
+     "reader": "ALP",
+     "duration": "00:58",
+     "url": "https://archive.org/download/when_i_heard_the_learnd_astronomer_1702.poem_librivox/astronomer_whitman_alp_64kb.mp3"
+    },
+    {
+     "reader": "BK",
+     "duration": "01:15",
+     "url": "https://archive.org/download/when_i_heard_the_learnd_astronomer_1702.poem_librivox/astronomer_whitman_bk_64kb.mp3"
+    },
+    {
+     "reader": "CAL",
+     "duration": "00:58",
+     "url": "https://archive.org/download/when_i_heard_the_learnd_astronomer_1702.poem_librivox/astronomer_whitman_cal_64kb.mp3"
+    },
+    {
+     "reader": "DL",
+     "duration": "01:05",
+     "url": "https://archive.org/download/when_i_heard_the_learnd_astronomer_1702.poem_librivox/astronomer_whitman_dl_64kb.mp3"
+    },
+    {
+     "reader": "EL",
+     "duration": "01:06",
+     "url": "https://archive.org/download/when_i_heard_the_learnd_astronomer_1702.poem_librivox/astronomer_whitman_el_64kb.mp3"
+    },
+    {
+     "reader": "EZWA",
+     "duration": "00:59",
+     "url": "https://archive.org/download/when_i_heard_the_learnd_astronomer_1702.poem_librivox/astronomer_whitman_ezwa_64kb.mp3"
+    },
+    {
+     "reader": "FS",
+     "duration": "00:54",
+     "url": "https://archive.org/download/when_i_heard_the_learnd_astronomer_1702.poem_librivox/astronomer_whitman_fs_64kb.mp3"
+    },
+    {
+     "reader": "IK",
+     "duration": "01:06",
+     "url": "https://archive.org/download/when_i_heard_the_learnd_astronomer_1702.poem_librivox/astronomer_whitman_ik_64kb.mp3"
+    }
+   ],
+   "note": "LibriVox's catalog page links to the 1900 Leaves of Grass text on Bartleby, which differs from this one: line 3 reads 'the charts and the diagrams' (here 'the charts and diagrams'), and it has semicolons at several line ends and commas around 'sitting' and 'unaccountable'. Neither Wikisource nor Project Gutenberg was found to have that text, and which wording each reader used was not checked by listening. First published in Drum-Taps (1865)."
+  },
+  {
+   "id": "sonnet116",
+   "title": "Sonnet 116",
+   "poetId": "shakespeare",
+   "year": 1609,
+   "yearSource": "https://en.wikipedia.org/wiki/Sonnet_116",
+   "lines": [
+    "Let me not to the marriage of true minds",
+    "Admit impediments. Love is not love",
+    "Which alters when it alteration finds,",
+    "Or bends with the remover to remove:",
+    "O, no! it is an ever-fixed mark,",
+    "That looks on tempests and is never shaken;",
+    "It is the star to every wandering bark,",
+    "Whose worth’s unknown, although his height be taken.",
+    "Love’s not Time’s fool, though rosy lips and cheeks",
+    "Within his bending sickle’s compass come;",
+    "Love alters not with his brief hours and weeks,",
+    "But bears it out even to the edge of doom.",
+    "If this be error and upon me prov’d,",
+    "I never writ, nor no man ever lov’d."
+   ],
+   "textSource": "https://www.gutenberg.org/ebooks/1041",
+   "textEdition": "Shakespeare's Sonnets, Project Gutenberg eBook #1041 (modern spelling; the eBook does not name the print edition it follows)",
+   "librivox": {
+    "identifier": "sonnet_116_librivox",
+    "week": "October 15th, 2006",
+    "license": "http://creativecommons.org/licenses/publicdomain/",
+    "page": "https://archive.org/details/sonnet_116_librivox"
+   },
+   "recordings": [
+    {
+     "reader": "ADD",
+     "duration": "01:29",
+     "url": "https://archive.org/download/sonnet_116_librivox/sonnet_116_shakespeare_add_64kb.mp3"
+    },
+    {
+     "reader": "ALNL",
+     "duration": "01:01",
+     "url": "https://archive.org/download/sonnet_116_librivox/sonnet_116_shakespeare_alnl_64kb.mp3"
+    },
+    {
+     "reader": "APC",
+     "duration": "01:22",
+     "url": "https://archive.org/download/sonnet_116_librivox/sonnet_116_shakespeare_apc_64kb.mp3"
+    },
+    {
+     "reader": "DS",
+     "duration": "01:48",
+     "url": "https://archive.org/download/sonnet_116_librivox/sonnet_116_shakespeare_ds_64kb.mp3"
+    },
+    {
+     "reader": "EZWA",
+     "duration": "01:04",
+     "url": "https://archive.org/download/sonnet_116_librivox/sonnet_116_shakespeare_ezwa_64kb.mp3"
+    },
+    {
+     "reader": "JB",
+     "duration": "01:05",
+     "url": "https://archive.org/download/sonnet_116_librivox/sonnet_116_shakespeare_jb_64kb.mp3"
+    },
+    {
+     "reader": "KLH",
+     "duration": "01:15",
+     "url": "https://archive.org/download/sonnet_116_librivox/sonnet_116_shakespeare_klh_64kb.mp3"
+    },
+    {
+     "reader": "KNF",
+     "duration": "01:07",
+     "url": "https://archive.org/download/sonnet_116_librivox/sonnet_116_shakespeare_knf_64kb.mp3"
+    }
+   ],
+   "note": "LibriVox's catalog page links to the Oxford Shakespeare (ed. W. J. Craig, 1914) text on Bartleby. It has the same words, with 'Love 's not' and 'If this be error, and upon me prov'd' where this text has 'Love's not' and no comma after 'error'."
+  },
+  {
+   "id": "sonnet73",
+   "title": "Sonnet 73",
+   "poetId": "shakespeare",
+   "year": 1609,
+   "yearSource": "https://en.wikipedia.org/wiki/Shakespeare%27s_sonnets",
+   "lines": [
+    "That time of year thou mayst in me behold",
+    "When yellow leaves, or none, or few, do hang",
+    "Upon those boughs which shake against the cold,",
+    "Bare ruin’d choirs, where late the sweet birds sang.",
+    "In me thou see’st the twilight of such day",
+    "As after sunset fadeth in the west;",
+    "Which by and by black night doth take away,",
+    "Death’s second self, that seals up all in rest.",
+    "In me thou see’st the glowing of such fire,",
+    "That on the ashes of his youth doth lie,",
+    "As the death-bed, whereon it must expire,",
+    "Consum’d with that which it was nourish’d by.",
+    "This thou perceiv’st, which makes thy love more strong,",
+    "To love that well, which thou must leave ere long."
+   ],
+   "textSource": "https://www.gutenberg.org/ebooks/1041",
+   "textEdition": "Shakespeare's Sonnets, Project Gutenberg eBook #1041 (modern spelling; the eBook does not name the print edition it follows)",
+   "librivox": {
+    "identifier": "sonnet_73_librivox",
+    "week": "April 23, 2006",
+    "license": "http://creativecommons.org/licenses/publicdomain/",
+    "page": "https://archive.org/details/sonnet_73_librivox"
+   },
+   "recordings": [
+    {
+     "reader": "AA",
+     "duration": "01:07",
+     "url": "https://archive.org/download/sonnet_73_librivox/sonnet_73_shakespeare_aa_64kb.mp3"
+    },
+    {
+     "reader": "APC",
+     "duration": "01:35",
+     "url": "https://archive.org/download/sonnet_73_librivox/sonnet_73_shakespeare_apc_64kb.mp3"
+    },
+    {
+     "reader": "DJBS",
+     "duration": "01:28",
+     "url": "https://archive.org/download/sonnet_73_librivox/sonnet_73_shakespeare_djbs_64kb.mp3"
+    },
+    {
+     "reader": "GW",
+     "duration": "01:14",
+     "url": "https://archive.org/download/sonnet_73_librivox/sonnet_73_shakespeare_gw_64kb.mp3"
+    },
+    {
+     "reader": "HM",
+     "duration": "01:11",
+     "url": "https://archive.org/download/sonnet_73_librivox/sonnet_73_shakespeare_hm_64kb.mp3"
+    },
+    {
+     "reader": "JY",
+     "duration": "00:54",
+     "url": "https://archive.org/download/sonnet_73_librivox/sonnet_73_shakespeare_jy_64kb.mp3"
+    },
+    {
+     "reader": "LF",
+     "duration": "01:36",
+     "url": "https://archive.org/download/sonnet_73_librivox/sonnet_73_shakespeare_lf_64kb.mp3"
+    },
+    {
+     "reader": "MAC",
+     "duration": "01:05",
+     "url": "https://archive.org/download/sonnet_73_librivox/sonnet_73_shakespeare_mac_64kb.mp3"
+    }
+   ],
+   "note": "LibriVox's catalog page links to the Oxford Shakespeare (ed. W. J. Craig, 1914) text on Bartleby. It has the same words, without the commas in 'As the death-bed, whereon it must expire,' and 'To love that well, which'. Year source: the Wikipedia article on Shakespeare's sonnets (first published together in the 1609 quarto)."
+  },
+  {
+   "id": "vagabond",
+   "title": "A Vagabond Song",
+   "poetId": "carman",
+   "year": 1896,
+   "yearSource": "https://en.wikipedia.org/wiki/Bliss_Carman",
+   "lines": [
+    "There is something in the autumn that is native to my blood --",
+    "Touch of manner, hint of mood;",
+    "And my heart is like a rhyme,",
+    "With the yellow and the purple and the crimson keeping time.",
+    "",
+    "The scarlet of the maples can shake me like a cry",
+    "Of bugles going by.",
+    "And my lonely spirit thrills",
+    "To see the frosty asters like a smoke upon the hills.",
+    "",
+    "There is something in October sets the gypsy blood astir;",
+    "We must rise and follow her,",
+    "When from every hill of flame",
+    "She calls and calls each vagabond by name."
+   ],
+   "textSource": "https://www.gutenberg.org/ebooks/1165",
+   "textEdition": "The Little Book of Modern Verse, ed. Jessie B. Rittenhouse (1917), Project Gutenberg eBook #1165",
+   "librivox": {
+    "identifier": "vagabond_song_librivox",
+    "week": "September 24th, 2006",
+    "license": "http://creativecommons.org/licenses/publicdomain/",
+    "page": "https://archive.org/details/vagabond_song_librivox"
+   },
+   "recordings": [
+    {
+     "reader": "ALNL",
+     "duration": "00:53",
+     "url": "https://archive.org/download/vagabond_song_librivox/vagabond_song_carman_alnl_64kb.mp3"
+    },
+    {
+     "reader": "BLB",
+     "duration": "00:59",
+     "url": "https://archive.org/download/vagabond_song_librivox/vagabond_song_carman_blb_64kb.mp3"
+    },
+    {
+     "reader": "CZ",
+     "duration": "01:03",
+     "url": "https://archive.org/download/vagabond_song_librivox/vagabond_song_carman_cz_64kb.mp3"
+    },
+    {
+     "reader": "EHL",
+     "duration": "00:48",
+     "url": "https://archive.org/download/vagabond_song_librivox/vagabond_song_carman_ehl_64kb.mp3"
+    },
+    {
+     "reader": "EZWA",
+     "duration": "00:53",
+     "url": "https://archive.org/download/vagabond_song_librivox/vagabond_song_carman_ezwa_64kb.mp3"
+    },
+    {
+     "reader": "HT",
+     "duration": "00:59",
+     "url": "https://archive.org/download/vagabond_song_librivox/vagabond_song_carman_ht_64kb.mp3"
+    },
+    {
+     "reader": "JB",
+     "duration": "00:44",
+     "url": "https://archive.org/download/vagabond_song_librivox/vagabond_song_carman_jb_64kb.mp3"
+    },
+    {
+     "reader": "KLH",
+     "duration": "01:01",
+     "url": "https://archive.org/download/vagabond_song_librivox/vagabond_song_carman_klh_64kb.mp3"
+    }
+   ],
+   "note": "LibriVox's catalog page links to this anthology's text on Bartleby. The words are the same as in the poem's first book appearance, More Songs from Vagabondia (Copeland and Day, October 1896; Project Gutenberg eBook #18007), published under the names of Bliss Carman and Richard Hovey; the anthology and LibriVox credit the poem to Carman. The eBook types the dash in line 1 as ' --'; it is kept as given."
+  },
+  {
+   "id": "cow",
+   "title": "The Cow",
+   "poetId": "stevenson",
+   "year": 1885,
+   "yearSource": "https://en.wikipedia.org/wiki/A_Child%27s_Garden_of_Verses",
+   "lines": [
+    "The friendly cow all red and white,",
+    "I love with all my heart:",
+    "She gives me cream with all her might,",
+    "To eat with apple-tart.",
+    "",
+    "She wanders lowing here and there,",
+    "And yet she cannot stray,",
+    "All in the pleasant open air,",
+    "The pleasant light of day;",
+    "",
+    "And blown by all the winds that pass",
+    "And wet with all the showers,",
+    "She walks among the meadow grass",
+    "And eats the meadow flowers."
+   ],
+   "textSource": "https://en.wikisource.org/wiki/A_Child%27s_Garden_of_Verses/The_Cow",
+   "textEdition": "A Child's Garden of Verses (1885), poem XXIII, p. 27",
+   "librivox": {
+    "identifier": "cow_stevenson",
+    "week": "November 20th, 2005",
+    "license": null,
+    "page": "https://archive.org/details/cow_stevenson"
+   },
+   "recordings": [
+    {
+     "reader": null,
+     "duration": "01:07",
+     "url": "https://archive.org/download/cow_stevenson/cow_stevenson_chv_64kb.mp3",
+     "fileTitle": "the_cow_chv"
+    },
+    {
+     "reader": null,
+     "duration": "00:41",
+     "url": "https://archive.org/download/cow_stevenson/cow_stevenson_cs_64kb.mp3",
+     "fileTitle": "the_cow_cs"
+    },
+    {
+     "reader": null,
+     "duration": "00:41",
+     "url": "https://archive.org/download/cow_stevenson/cow_stevenson_fp_64kb.mp3",
+     "fileTitle": "the_cow_fp"
+    },
+    {
+     "reader": null,
+     "duration": "00:51",
+     "url": "https://archive.org/download/cow_stevenson/cow_stevenson_geb_64kb.mp3",
+     "fileTitle": "the_cow_geb"
+    },
+    {
+     "reader": null,
+     "duration": "00:40",
+     "url": "https://archive.org/download/cow_stevenson/cow_stevenson_hf_64kb.mp3",
+     "fileTitle": "the_cow_hf"
+    },
+    {
+     "reader": null,
+     "duration": "01:07",
+     "url": "https://archive.org/download/cow_stevenson/cow_stevenson_hm_64kb.mp3",
+     "fileTitle": "the_cow_hm"
+    },
+    {
+     "reader": null,
+     "duration": "00:35",
+     "url": "https://archive.org/download/cow_stevenson/cow_stevenson_jbb_64kb.mp3",
+     "fileTitle": "the_cow_jbb"
+    },
+    {
+     "reader": null,
+     "duration": "00:48",
+     "url": "https://archive.org/download/cow_stevenson/cow_stevenson_jos_64kb.mp3",
+     "fileTitle": "the_cow_jos"
+    }
+   ],
+   "note": "LibriVox's catalog page links to Project Gutenberg eBook #136, which has the same words; this scanned 1885 edition was used because Gutenberg flags #136 as an early, poorly proofread file. The printed drop capital 'THE' is written 'The'. The archive.org file titles (for example 'the_cow_chv') have no 'Read by', so each reader is null and fileTitle keeps the file title; the item description names the readers in full but does not say which file is whose. The archive.org item has no licenseurl; the LibriVox catalog page states 'LibriVox recordings are Public Domain in the USA.'"
+  },
+  {
+   "id": "aedh",
+   "title": "Aedh Wishes for the Cloths of Heaven",
+   "poetId": "yeats",
+   "year": 1899,
+   "yearSource": "https://en.wikipedia.org/wiki/Aedh_Wishes_for_the_Cloths_of_Heaven",
+   "lines": [
+    "Had I the heavens' embroidered cloths,",
+    "Enwrought with golden and silver light,",
+    "The blue and the dim and the dark cloths",
+    "Of night and light and the half light,",
+    "I would spread the cloths under your feet:",
+    "But I, being poor, have only my dreams;",
+    "I have spread my dreams under your feet;",
+    "Tread softly because you tread on my dreams."
+   ],
+   "textSource": "https://en.wikisource.org/wiki/The_Wind_Among_the_Reeds/Aedh_wishes_for_the_Cloths_of_Heaven",
+   "textEdition": "The Wind Among the Reeds (1899), p. 60",
+   "librivox": {
+    "identifier": "aedh_wishes_librivox",
+    "week": "December 10th, 2006",
+    "license": "http://creativecommons.org/licenses/publicdomain/",
+    "page": "https://archive.org/details/aedh_wishes_librivox"
+   },
+   "recordings": [
+    {
+     "reader": "ADD",
+     "duration": "01:02",
+     "url": "https://archive.org/download/aedh_wishes_librivox/aedh_yeats_add_64kb.mp3"
+    },
+    {
+     "reader": "APC",
+     "duration": "00:46",
+     "url": "https://archive.org/download/aedh_wishes_librivox/aedh_yeats_apc_64kb.mp3"
+    },
+    {
+     "reader": "BLB",
+     "duration": "00:50",
+     "url": "https://archive.org/download/aedh_wishes_librivox/aedh_yeats_blb_64kb.mp3"
+    },
+    {
+     "reader": "DY",
+     "duration": "00:55",
+     "url": "https://archive.org/download/aedh_wishes_librivox/aedh_yeats_dy_64kb.mp3"
+    },
+    {
+     "reader": "EZWA",
+     "duration": "00:47",
+     "url": "https://archive.org/download/aedh_wishes_librivox/aedh_yeats_ezwa_64kb.mp3"
+    },
+    {
+     "reader": "GMH",
+     "duration": "00:49",
+     "url": "https://archive.org/download/aedh_wishes_librivox/aedh_yeats_gmh_64kb.mp3"
+    },
+    {
+     "reader": "JSB",
+     "duration": "00:48",
+     "url": "https://archive.org/download/aedh_wishes_librivox/aedh_yeats_jsb_64kb.mp3"
+    },
+    {
+     "reader": "LD",
+     "duration": "00:53",
+     "url": "https://archive.org/download/aedh_wishes_librivox/aedh_yeats_ld_64kb.mp3"
+    }
+   ],
+   "note": "LibriVox's catalog page links to the same book's text on Bartleby; the words match. The archive.org item has no creator field."
+  },
+  {
+   "id": "fire",
+   "title": "Fire and Ice",
+   "poetId": "frost",
+   "year": 1920,
+   "yearSource": "https://en.wikipedia.org/wiki/Fire_and_Ice_(poem)",
+   "lines": [
+    "Some say the world will end in fire,",
+    "Some say in ice.",
+    "From what I’ve tasted of desire",
+    "I hold with those who favor fire.",
+    "But if it had to perish twice,",
+    "I think I know enough of hate",
+    "To know that for destruction ice",
+    "Is also great",
+    "And would suffice."
+   ],
+   "textSource": "https://en.wikisource.org/wiki/Miscellaneous_Poems_to_1920/Fire_and_Ice",
+   "textEdition": "Harper's Magazine, December 1920, as given in Miscellaneous Poems to 1920 (Bartleby.com compilation, 1999)",
+   "librivox": {
+    "identifier": "fire_and_ice_librivox",
+    "week": "August 27th, 2006",
+    "license": "http://creativecommons.org/licenses/publicdomain/",
+    "page": "https://archive.org/details/fire_and_ice_librivox"
+   },
+   "recordings": [
+    {
+     "reader": "ADD",
+     "duration": "00:48",
+     "url": "https://archive.org/download/fire_and_ice_librivox/fire_and_ice_frost_add_64kb.mp3"
+    },
+    {
+     "reader": "APC",
+     "duration": "00:49",
+     "url": "https://archive.org/download/fire_and_ice_librivox/fire_and_ice_frost_apc_64kb.mp3"
+    },
+    {
+     "reader": "BJS",
+     "duration": "00:32",
+     "url": "https://archive.org/download/fire_and_ice_librivox/fire_and_ice_frost_bjs_64kb.mp3"
+    },
+    {
+     "reader": "BLB",
+     "duration": "00:46",
+     "url": "https://archive.org/download/fire_and_ice_librivox/fire_and_ice_frost_blb_64kb.mp3"
+    },
+    {
+     "reader": "CBWS",
+     "duration": "00:51",
+     "url": "https://archive.org/download/fire_and_ice_librivox/fire_and_ice_frost_cbws_64kb.mp3"
+    },
+    {
+     "reader": "CS",
+     "duration": "00:40",
+     "url": "https://archive.org/download/fire_and_ice_librivox/fire_and_ice_frost_cs_64kb.mp3"
+    },
+    {
+     "reader": "EM",
+     "duration": "00:51",
+     "url": "https://archive.org/download/fire_and_ice_librivox/fire_and_ice_frost_em_64kb.mp3"
+    },
+    {
+     "reader": "GW",
+     "duration": "00:47",
+     "url": "https://archive.org/download/fire_and_ice_librivox/fire_and_ice_frost_gw_64kb.mp3"
+    }
+   ],
+   "note": "LibriVox's catalog page links to this Harper's Magazine (December 1920) text on Bartleby, so it is used here. In New Hampshire (1923) line 7 reads 'To say that for destruction ice' instead of 'To know that for destruction ice'."
+  }
+ ]
+}
