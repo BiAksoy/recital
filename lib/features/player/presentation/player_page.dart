@@ -159,6 +159,9 @@ class _Controls extends ConsumerWidget {
 
   /// A sheet of choices. Partially open, it opens on the side Apple puts controls.
   Future<void> _chooseSpeed(BuildContext context, WidgetRef ref) async {
+    // Read first: a change of pose while the sheet is open lays the page out again, and
+    // this widget may be built anew in the other pane before the choice comes back.
+    final controller = ref.read(playerControllerProvider.notifier);
     final speed = await showModalBottomSheet<double>(
       context: context,
       anchorPoint: foldSheetAnchor,
@@ -175,9 +178,7 @@ class _Controls extends ConsumerWidget {
         ],
       ),
     );
-    if (speed != null) {
-      await ref.read(playerControllerProvider.notifier).setSpeed(speed);
-    }
+    if (speed != null) await controller.setSpeed(speed);
   }
 
   static String _time(Duration duration) =>
