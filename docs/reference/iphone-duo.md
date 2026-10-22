@@ -89,6 +89,13 @@ Review Guidelines change naming iPhone Duo, the TechRepublic article (listing on
   to lock the inner display to portrait", so read it as: honoured outside, ignored inside.
   **Others** (flutter#194277) measured a portrait-only Flutter app laid out at 951 × 669 on
   the inner display, and letterboxed at 469 × 669 only with `UIRequiresFullScreen`.
+- **Measured**: a lock at run time is another matter. A Flutter app that asked for
+  portrait only (`SystemChrome.setPreferredOrientations`) when the device opened stayed
+  portrait on the inner display, lying on its side across the wide screen, and on a table
+  upside down; asking for every orientation afterwards did not turn it back, and iOS
+  logged "The current windowing mode does not allow for programmatic changes to interface
+  orientation". With no lock when it opened, the app filled the inner display wide, and
+  closed it followed the device into landscape. Simulator only.
 
 ### Keep one app across the displays
 
