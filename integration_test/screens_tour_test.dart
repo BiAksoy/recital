@@ -62,7 +62,14 @@ void main() {
     await screenshot(tester, 'poet');
 
     await tapTab(tester, 'Poems');
-    await tester.tap(find.textContaining('Read by').first);
+    // The readings follow the poem, below the screen on a phone.
+    final reading = find.textContaining('Read by');
+    await tester.scrollUntilVisible(
+      reading.first,
+      300,
+      scrollable: find.byType(Scrollable).last,
+    );
+    await tester.tap(reading.first);
     final container = ProviderScope.containerOf(
       tester.element(find.byType(App)),
     );
