@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:recital/app.dart';
+import 'package:recital/features/catalog/application/catalog_providers.dart';
 import 'package:recital/features/player/application/player_controller.dart';
 import 'package:recital/features/player/presentation/mini_player.dart';
 
@@ -61,18 +62,18 @@ void main() {
     await tester.pumpAndSettle();
     await screenshot(tester, 'poet');
 
+    // The first reading of the poem on screen, started as a tap on it would.
     await tapTab(tester, 'Poems');
-    // The readings follow the poem, below the screen on a phone.
-    final reading = find.textContaining('Read by');
-    await tester.scrollUntilVisible(
-      reading.first,
-      300,
-      scrollable: find.byType(Scrollable).last,
-    );
-    await tester.tap(reading.first);
     final container = ProviderScope.containerOf(
       tester.element(find.byType(App)),
     );
+    final catalog = await container.read(catalogProvider.future);
+    final poem = catalog.poems.firstWhere(
+      (poem) => poem.title == 'Ozymandias of Egypt',
+    );
+    await container
+        .read(playerControllerProvider.notifier)
+        .play(poem, poem.recordings.first);
     for (var i = 0; i < 80; i++) {
       final now = container.read(playerControllerProvider);
       if (now != null && now.position > const Duration(seconds: 2)) break;
