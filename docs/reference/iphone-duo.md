@@ -231,3 +231,8 @@ From the SDK headers (**Apple**):
   `recordVideo` takes the same `--display`.
 - `scripts/duo/duo_pose.swift` presses Device Hub's buttons through the accessibility API,
   and `scripts/duo/tour.sh` runs the screens tour through every pose with it.
+- **Measured**: a `simctl` screenshot follows the app's interface orientation, not the
+  device's: an app locked upright gives a tall screenshot of a device held sideways. To see
+  the device as it is, capture Device Hub's window (`screencapture -l <window id>`).
+- **Measured**: while the Mac is locked, Device Hub has no window, so its pose buttons
+  cannot be pressed; `tour.sh` waits until it is unlocked.
