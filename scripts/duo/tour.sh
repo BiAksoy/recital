@@ -11,7 +11,8 @@
 # the pose it is in and both displays are captured, the one not in use black. With
 # `record` and a comma-separated list of shot names (`player,pdf`), those screens are also
 # filmed through every pose, from closed to open and back; `record-only` films those and
-# skips the screenshots of the rest.
+# skips the screenshots of the rest. DEVICE_SHOTS=1 in the environment also saves the
+# device as Device Hub draws it.
 set -euo pipefail
 cd "$(dirname "$0")/../.."
 . scripts/toolchain.sh
@@ -35,7 +36,32 @@ pose() {
   sleep 4
 }
 # The outer display is "primary" and the inner one "primary-1".
-capture() { xcrun simctl io "$udid" screenshot --display="$2" "$out/${1}.png" > /dev/null 2>&1 || echo "   no screenshot of $1"; }
+capture() {
+  xcrun simctl io "$udid" screenshot --display="$2" "$out/${1}.png" > /dev/null 2>&1 ||
+    echo "   no screenshot of $1"
+  [ -n "${DEVICE_SHOTS:-}" ] && device_shot "$1"
+  true
+}
+
+# With DEVICE_SHOTS set, also "$out/<shot>.device.png": the device as Device Hub draws
+# it, bezel and fold included, cropped from its window. The window must be open, not
+# minimised; other windows over it do not matter.
+device_shot() {
+  local window raw="$sync_dir/window.png" box
+  window=$(build/duo_pose --window) || return
+  screencapture -x -o -l "$window" "$raw"
+  # The device is the dark shape on Device Hub's light canvas, right of the sidebar and
+  # between the toolbars.
+  box=$(ffmpeg -hide_banner -loop 1 -t 0.5 -i "$raw" \
+    -vf "crop=iw*0.75:ih*0.75:iw*0.24:ih*0.1,format=gray,negate,cropdetect=limit=0.2:round=2:reset=0" \
+    -f null - 2>&1 | grep -o 'crop=[0-9:]*' | tail -1 | cut -d= -f2)
+  [ -n "$box" ] || return
+  local w h x y
+  IFS=: read -r w h x y <<< "$box"
+  ffmpeg -loglevel error -y -i "$raw" -vf \
+    "crop=iw*0.75:ih*0.75:iw*0.24:ih*0.1,crop=$((w + 40)):$((h + 40)):$((x - 20)):$((y - 20))" \
+    "$out/${1}.device.png"
+}
 
 # Screenshots whichever display "$frames/display" names, one after another, until
 # "$frames/stop" appears. simctl's recordVideo keeps the inner display's native

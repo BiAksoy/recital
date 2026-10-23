@@ -9,6 +9,21 @@ import ApplicationServices
 import Cocoa
 
 let name = CommandLine.arguments.dropFirst().joined(separator: " ")
+
+// `--window` prints the number of Device Hub's device window instead, for
+// `screencapture -l`, which draws the device as Device Hub does.
+if name == "--window" {
+  let windows =
+    CGWindowListCopyWindowInfo([.optionAll], kCGNullWindowID) as? [[String: Any]] ?? []
+  for window in windows
+  where window[kCGWindowOwnerName as String] as? String == "Device Hub"
+    && (window[kCGWindowName as String] as? String ?? "").contains("iPhone Duo")
+  {
+    print(window[kCGWindowNumber as String] ?? "")
+    exit(0)
+  }
+  exit(1)
+}
 // NSRunningApplication reports Device Hub's pid as -1 to a command-line tool, so ask pgrep.
 let pgrep = Process()
 pgrep.executableURL = URL(fileURLWithPath: "/usr/bin/pgrep")
